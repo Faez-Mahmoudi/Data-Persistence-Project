@@ -1,14 +1,25 @@
 using UnityEngine;
-//using UnityEngine.UI;
+using System.IO;
 
 public class MyManager : MonoBehaviour
 {
     public static MyManager Instance;
     public string playerName;
-    //public InputField nameField;
+
+    // data for our SaveData class
+    public string bestPlayerName;
+    public int bestScore;
+
+    [System.Serializable]
+    class SaveData
+    {
+        public string bestPlayerName;
+        public int bestScore;
+    }
 
     private void Awake()
     {
+        // Sigleton: ensure thre is just one MyManager GameObject on the Scene
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -16,16 +27,29 @@ public class MyManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+
+        // LoadScore at Awake
+        LoadScore();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveScore()
     {
-        
+        SaveData data = new SaveData();
+        data.bestPlayerName = bestPlayerName;
+        data.bestScore = bestScore;
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+
+    public void LoadScore()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            bestPlayerName = data.bestPlayerName;
+            bestScore = data.bestScore;
+        }
     }
 }

@@ -30,6 +30,9 @@ public class MenuUIHandler : MonoBehaviour
     # else
         Application.Quit();
     # endif
+
+        //Saves the last bestScore and bestPlayerName
+        MyManager.Instance.SaveScore();
     }
 
 }
