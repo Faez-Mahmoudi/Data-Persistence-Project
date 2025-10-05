@@ -35,4 +35,9 @@ public class MenuUIHandler : MonoBehaviour
         MyManager.Instance.SaveScore();
     }
 
+    public void HighScore()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 }
