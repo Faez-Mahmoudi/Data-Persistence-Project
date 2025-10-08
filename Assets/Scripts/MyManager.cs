@@ -1,21 +1,33 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class MyManager : MonoBehaviour
 {
     public static MyManager Instance;
     public string playerName;
 
-    // data for our SaveData class
+    // data for our ScoreEntry class
     public string bestPlayerName;
     public int bestScore;
 
+    // data for our SaveData class
+    public List<ScoreEntry> highScores = new List<ScoreEntry>();
+
     [System.Serializable]
-    class SaveData
+    public class ScoreEntry
     {
         public string bestPlayerName;
         public int bestScore;
     }
+
+    [System.Serializable]
+    class SaveData
+    {
+        public List<ScoreEntry> highScores = new List<ScoreEntry>();
+    }
+
+
 
     private void Awake()
     {
@@ -30,14 +42,32 @@ public class MyManager : MonoBehaviour
 
         // LoadScore at Awake
         LoadScore();
+        bestPlayerName = highScores[0].bestPlayerName;
+        bestScore = highScores[0].bestScore;
+    }
+
+    // Add a new score and save it
+    public void AddNewScore(string playerName, int score)
+    {
+        ScoreEntry entry = new ScoreEntry { bestPlayerName = playerName, bestScore = score };
+        highScores.Add(entry);
+
+        // Sort descending
+        highScores.Sort((a, b) => b.bestScore.CompareTo(a.bestScore));
+
+        // Optional: keep only top 5
+        if (highScores.Count > 5)
+            highScores = highScores.GetRange(0, 5);
+
+        SaveScore();
     }
 
     public void SaveScore()
     {
         SaveData data = new SaveData();
-        data.bestPlayerName = bestPlayerName;
-        data.bestScore = bestScore;
-        string json = JsonUtility.ToJson(data);
+        data.highScores = highScores;
+
+        string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
@@ -48,8 +78,8 @@ public class MyManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
-            bestPlayerName = data.bestPlayerName;
-            bestScore = data.bestScore;
+            
+            highScores = data.highScores ?? new List<ScoreEntry>();
         }
     }
 }

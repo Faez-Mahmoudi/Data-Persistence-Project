@@ -1510,6 +1510,17 @@ MonoBehaviour:
   playerName: 
   bestPlayerName: 
   bestScore: 0
+  highScores:
+  - bestPlayerName: 
+    bestScore: 0
+  - bestPlayerName: 
+    bestScore: 0
+  - bestPlayerName: 
+    bestScore: 0
+  - bestPlayerName: 
+    bestScore: 0
+  - bestPlayerName: 
+    bestScore: 0
 --- !u!4 &1442334976
 Transform:
   m_ObjectHideFlags: 0
@@ -1519,7 +1530,7 @@ Transform:
   m_GameObject: {fileID: 1442334974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 604.875, y: 383, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

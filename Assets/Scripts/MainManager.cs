@@ -79,6 +79,8 @@ public class MainManager : MonoBehaviour
         {
             MyManager.Instance.bestPlayerName = MyManager.Instance.playerName;
             MyManager.Instance.bestScore = m_Points;
+
+            
             BestScoreText.text = $"Best Score : {MyManager.Instance.bestPlayerName} : {m_Points}";
         }
     }
@@ -87,6 +89,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        if (m_Points >= MyManager.Instance.highScores[4].bestScore)
+        {
+            MyManager.Instance.AddNewScore(MyManager.Instance.playerName, m_Points);
+        }
     }
 
     public void BackToMenu()

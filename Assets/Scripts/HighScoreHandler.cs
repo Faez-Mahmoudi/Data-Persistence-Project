@@ -1,26 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class HighScoreHandler : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI scoreText;
 
-    //public List<TextMeshProUGUI> nameTexts;
-    //public List<create a class> className;
+    public List<TextMeshProUGUI> nameTexts;
+    public List<TextMeshProUGUI> scoreTexts;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       nameText.text = MyManager.Instance.bestPlayerName;
-       scoreText.text = MyManager.Instance.bestScore.ToString(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       for (int i = 0; i < MyManager.Instance.highScores.Count; ++i)
+       {
+            nameTexts[i].text = MyManager.Instance.highScores[i].bestPlayerName;
+            scoreTexts[i].text = MyManager.Instance.highScores[i].bestScore.ToString(); 
+       }   
     }
 
     public void BackToMenu()
