@@ -40,4 +40,8 @@ public class MenuUIHandler : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void SettingScene()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
