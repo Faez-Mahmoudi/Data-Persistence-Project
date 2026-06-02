@@ -30,14 +30,33 @@ public class MainManager : MonoBehaviour
         int[] pointCountArray = new [] {1,1,2,2,5,5};
         for (int i = 0; i < LineCount; ++i)
         {
-            for (int x = 0; x < perLine; ++x)
+            for (int x = 0; x <= i; ++x)
             {
-                Vector3 position = new Vector3(-1.5f + step * x, 2.5f + i * 0.3f, 0);
+                Vector3 position1 = new Vector3(-3.5f + step * x, 2.5f + i * 0.3f, 0);
+                Vector3 position2 = new Vector3(3.5f + step * -x, 2.5f + i * 0.3f, 0);
+
+                var brick1 = Instantiate(BrickPrefab, position1, Quaternion.identity);
+                brick1.PointValue = pointCountArray[i];
+                brick1.onDestroyed.AddListener(AddPoint);
+
+                var brick2 = Instantiate(BrickPrefab, position2, Quaternion.identity);
+                brick2.PointValue = pointCountArray[i];
+                brick2.onDestroyed.AddListener(AddPoint);
+            }
+        }
+
+        /*
+        for (int i = 0; i < LineCount; ++i)
+        {
+            for (int x = 0; x >= i; ++x)
+            {
+                Vector3 position = new Vector3(0.0f + step * x, 2.5f + i * 0.3f, 0);
                 var brick = Instantiate(BrickPrefab, position, Quaternion.identity);
                 brick.PointValue = pointCountArray[i];
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+        */
 
         // Interpolate name and score at the start
         ScoreText.text = $"{MyManager.Instance.playerName}'s Score : {m_Points}";
