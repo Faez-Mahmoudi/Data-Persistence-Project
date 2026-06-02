@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public float Speed = 2.0f;
-    public float MaxMovement = 2.0f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float Speed = 6.0f;
+    [SerializeField] private float MaxMovement = 3.25f;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +14,11 @@ public class Paddle : MonoBehaviour
 
         Vector3 pos = transform.position;
         pos.x += input * Speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.W))
+            Speed = 10.0f;
+        else 
+            Speed = 6.0f;
 
         if (pos.x > MaxMovement)
             pos.x = MaxMovement;
