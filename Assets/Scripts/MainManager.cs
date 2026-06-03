@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.UI;
 using TMPro;
 
 public class MainManager : MonoBehaviour
@@ -20,7 +17,6 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,24 +41,18 @@ public class MainManager : MonoBehaviour
             }
         }
 
-        /*
-        for (int i = 0; i < LineCount; ++i)
+        for (int j = 0; j < 8; ++j)
         {
-            for (int x = 0; x >= i; ++x)
-            {
-                Vector3 position = new Vector3(0.0f + step * x, 2.5f + i * 0.3f, 0);
-                var brick = Instantiate(BrickPrefab, position, Quaternion.identity);
-                brick.PointValue = pointCountArray[i];
-                brick.onDestroyed.AddListener(AddPoint);
-            }
+            Vector3 position = new Vector3(-2.1f + step * j, 2.5f, 0);
+            var brick = Instantiate(BrickPrefab, position, Quaternion.identity);
+            brick.PointValue = pointCountArray[0];
+            brick.onDestroyed.AddListener(AddPoint);
         }
-        */
 
         // Interpolate name and score at the start
         ScoreText.text = $"{MyManager.Instance.playerName}'s Score : {m_Points}";
         // Interpolate bestPlayerName and bestScore at start
         BestScoreText.text = $"Best Score : {MyManager.Instance.bestPlayerName} : {MyManager.Instance.bestScore}";
-
     }
 
     private void Update()
