@@ -6,7 +6,7 @@ public class MainManager : MonoBehaviour
 {
     public Brick BrickPrefab;
     public int LineCount = 6;
-    public Rigidbody Ball;
+    public Rigidbody[] Balls;
 
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI BestScoreText;
@@ -62,12 +62,18 @@ public class MainManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 m_Started = true;
-                float randomDirection = Random.Range(-1.0f, 1.0f);
-                Vector3 forceDir = new Vector3(randomDirection, 1, 0);
-                forceDir.Normalize();
+                
 
-                Ball.transform.SetParent(null);
-                Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
+                foreach (var item in Balls)
+                {
+                    float randomDirection = Random.Range(-1.0f, 1.0f);
+                    Vector3 forceDir = new Vector3(randomDirection, 1, 0);
+                    forceDir.Normalize();
+                    item.transform.SetParent(null);
+                    item.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
+                }
+                //Ball[i].transform.SetParent(null);
+                //Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
             }
         }
         else if (m_GameOver)
