@@ -4,6 +4,7 @@ using TMPro;
 
 public class MainManager : MonoBehaviour
 {
+    public int waveCount = 1;
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody[] Balls;
@@ -49,6 +50,11 @@ public class MainManager : MonoBehaviour
             brick.onDestroyed.AddListener(AddPoint);
         }
 
+        if (waveCount == 2)
+            Balls[1].gameObject.SetActive(true);
+        else
+            Balls[1].gameObject.SetActive(false);   
+
         // Interpolate name and score at the start
         ScoreText.text = $"{MyManager.Instance.playerName}'s Score : {m_Points}";
         // Interpolate bestPlayerName and bestScore at start
@@ -82,6 +88,13 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+
+        var bricks = FindObjectsByType<Brick>(FindObjectsSortMode.None);
+        if (bricks.Length == 0)
+        {
+            waveCount = 2;
+            Start();
         }
     }
 
