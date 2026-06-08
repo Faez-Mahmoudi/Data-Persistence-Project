@@ -116,6 +116,7 @@ public class MainManager : MonoBehaviour
             foreach (var item in Balls)
             {
                 item.gameObject.SetActive(false);
+                Debug.Log("----------------");
             }
             Start();
         }
@@ -123,9 +124,12 @@ public class MainManager : MonoBehaviour
 
     void BallInstantiate(int i)
     {
-        Balls[i].gameObject.SetActive(true);
+        
         Balls[i].transform.position = pos[i].transform.position;
         Balls[i].transform.rotation = pos[i].transform.rotation;
+        Balls[i].linearVelocity = new Vector3();
+        Balls[i].angularVelocity = new Vector3();
+        Balls[i].gameObject.SetActive(true);
     }
 
     void AddPoint(int point)
