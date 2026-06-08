@@ -7,13 +7,15 @@ public class MainManager : MonoBehaviour
     public int waveCount = 1;
     public Brick BrickPrefab;
     public int LineCount = 6;
+    public GameObject ballPrefab;
     public Rigidbody[] Balls;
+    public GameObject[] pos;
 
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI BestScoreText;
     public GameObject GameOverText;
     
-    private bool m_Started = false;
+    private bool m_Started;
     private int m_Points;
     
     private bool m_GameOver = false;
@@ -21,6 +23,9 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_Started = false;
+
+        // Instantiate bricks
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -50,10 +55,25 @@ public class MainManager : MonoBehaviour
             brick.onDestroyed.AddListener(AddPoint);
         }
 
-        if (waveCount == 2)
-            Balls[1].gameObject.SetActive(true);
-        else
-            Balls[1].gameObject.SetActive(false);   
+        if (waveCount == 1)
+        {
+            BallInstantiate(0);
+        }
+        else if (waveCount == 2)
+        {
+            BallInstantiate(0);
+            BallInstantiate(1);
+        }
+        
+        /*
+        var objectBalls = FindObjectsByType<Ball>(FindObjectsSortMode.None);
+        foreach (var item in objectBalls)
+        {
+            int i = 0;
+            Balls[i] = item.GetComponent<Rigidbody>();
+            i++;
+        }   
+        */
 
         // Interpolate name and score at the start
         ScoreText.text = $"{MyManager.Instance.playerName}'s Score : {m_Points}";
@@ -78,8 +98,6 @@ public class MainManager : MonoBehaviour
                     item.transform.SetParent(null);
                     item.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
                 }
-                //Ball[i].transform.SetParent(null);
-                //Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
             }
         }
         else if (m_GameOver)
@@ -93,9 +111,21 @@ public class MainManager : MonoBehaviour
         var bricks = FindObjectsByType<Brick>(FindObjectsSortMode.None);
         if (bricks.Length == 0)
         {
+            m_Started = false;
             waveCount = 2;
+            foreach (var item in Balls)
+            {
+                item.gameObject.SetActive(false);
+            }
             Start();
         }
+    }
+
+    void BallInstantiate(int i)
+    {
+        Balls[i].gameObject.SetActive(true);
+        Balls[i].transform.position = pos[i].transform.position;
+        Balls[i].transform.rotation = pos[i].transform.rotation;
     }
 
     void AddPoint(int point)
