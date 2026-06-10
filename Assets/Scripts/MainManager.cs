@@ -65,16 +65,13 @@ public class MainManager : MonoBehaviour
             BallInstantiate(0);
             BallInstantiate(1);
         }
-        
-        /*
-        var objectBalls = FindObjectsByType<Ball>(FindObjectsSortMode.None);
-        foreach (var item in objectBalls)
+        else if (waveCount >= 3)
         {
-            int i = 0;
-            Balls[i] = item.GetComponent<Rigidbody>();
-            i++;
-        }   
-        */
+            waveCount = 2;
+            BallInstantiate(0);
+            BallInstantiate(1);
+            BallInstantiate(2);
+        }
 
         // Interpolate name and score at the start
         ScoreText.text = $"{MyManager.Instance.playerName}'s Score : {m_Points}";
@@ -90,7 +87,6 @@ public class MainManager : MonoBehaviour
             {
                 m_Started = true;
                 
-
                 foreach (var item in Balls)
                 {
                     float randomDirection = Random.Range(-1.0f, 1.0f);
@@ -113,19 +109,16 @@ public class MainManager : MonoBehaviour
         if (bricks.Length == 0)
         {
             m_Started = false;
-            waveCount = 2;
+            waveCount++;
             foreach (var item in Balls)
-            {
                 item.gameObject.SetActive(false);
-                Debug.Log("----------------");
-            }
+
             Start();
         }
     }
 
     void BallInstantiate(int i)
-    {
-        
+    {    
         Balls[i].transform.position = pos[i].transform.position;
         Balls[i].transform.rotation = pos[i].transform.rotation;
         Balls[i].linearVelocity = new Vector3();
