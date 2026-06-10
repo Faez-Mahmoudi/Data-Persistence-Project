@@ -13,7 +13,7 @@ public class Paddle : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x += input * Speed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.RightShift) ||  Input.GetKey(KeyCode.LeftShift))
             Speed = 10.0f;
         else 
             Speed = 5.0f;
