@@ -671,6 +671,7 @@ MonoBehaviour:
   BrickPrefab: {fileID: 897975713663390409, guid: 63f25b9733d2bcd4fa2ff6de1264c739, type: 3}
   LineCount: 6
   ballPrefab: {fileID: 3523423943812780874, guid: 94adc307c1b40d64a93886a7649fb43d, type: 3}
+  paddlePrefab: {fileID: 97436041}
   Balls:
   - {fileID: 857313336}
   - {fileID: 203846584}

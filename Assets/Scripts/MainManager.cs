@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour
     public Brick BrickPrefab;
     public int LineCount = 6;
     public GameObject ballPrefab;
+    public GameObject paddlePrefab;
     public Rigidbody[] Balls;
     public GameObject[] pos;
 
@@ -130,6 +131,7 @@ public class MainManager : MonoBehaviour
         Balls[i].linearVelocity = new Vector3();
         Balls[i].angularVelocity = new Vector3();
         Balls[i].gameObject.SetActive(true);
+        Balls[i].transform.SetParent(paddlePrefab.transform);
     }
 
     void AddPoint(int point)
