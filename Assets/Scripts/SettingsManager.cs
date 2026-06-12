@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    public Slider volumeSlider;
-    public Toggle soundToggle;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Toggle soundToggle;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class SettingsManager : MonoBehaviour
         MyManager.Instance.volume = value;
         AudioListener.volume = value;
     }
-
+    
     public void OnSoundToggled(bool enabled)
     {
         if (MyManager.Instance == null) return;
@@ -38,10 +38,7 @@ public class SettingsManager : MonoBehaviour
     public void BackToMenu()
     {
         if (MyManager.Instance != null)
-        {
-            // Save settings before leaving
             MyManager.Instance.SaveScore();
-        }
 
         SceneManager.LoadScene(0);
     }
