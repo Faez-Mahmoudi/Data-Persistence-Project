@@ -25,6 +25,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         m_Started = false;
+        Time.timeScale = 1;
 
         // Instantiate bricks
         const float step = 0.6f;
@@ -147,6 +148,7 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        Time.timeScale = 0; // Prevents the player from moving on game over
         if (m_Points >= MyManager.Instance.highScores[4].bestScore)
         {
             MyManager.Instance.AddNewScore(MyManager.Instance.playerName, m_Points);
