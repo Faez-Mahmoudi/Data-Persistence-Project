@@ -4,17 +4,17 @@ using TMPro;
 
 public class MainManager : MonoBehaviour
 {
-    public int waveCount = 1;
-    public Brick BrickPrefab;
-    public int LineCount = 6;
-    public GameObject ballPrefab;
-    public GameObject paddlePrefab;
-    public Rigidbody[] Balls;
-    public GameObject[] pos;
+    [SerializeField] private int waveCount = 1;
+    [SerializeField] private Brick BrickPrefab;
+    [SerializeField] private int LineCount = 6;
+    [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private GameObject paddlePrefab;
+    [SerializeField] private Rigidbody[] Balls;
+    [SerializeField] private GameObject[] pos;
 
-    public TextMeshProUGUI ScoreText;
-    public TextMeshProUGUI BestScoreText;
-    public GameObject GameOverText;
+    [SerializeField] private TextMeshProUGUI ScoreText;
+    [SerializeField] private TextMeshProUGUI BestScoreText;
+    [SerializeField] private GameObject GameOverText;
     
     private bool m_Started;
     private int m_Points;
@@ -137,9 +137,7 @@ public class MainManager : MonoBehaviour
         if (m_Points >= MyManager.Instance.bestScore)
         {
             MyManager.Instance.bestPlayerName = MyManager.Instance.playerName;
-            MyManager.Instance.bestScore = m_Points;
-
-            
+            MyManager.Instance.bestScore = m_Points;   
             BestScoreText.text = $"Best Score : {MyManager.Instance.bestPlayerName} : {m_Points}";
         }
     }

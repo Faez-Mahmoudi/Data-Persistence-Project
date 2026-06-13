@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    public TMP_InputField nameInputField;
+    [SerializeField] private TMP_InputField nameInputField;
     
     public void StartNew()
     {

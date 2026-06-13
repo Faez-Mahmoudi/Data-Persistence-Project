@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 public class HighScoreHandler : MonoBehaviour
 {
-
-    public List<TextMeshProUGUI> nameTexts;
-    public List<TextMeshProUGUI> scoreTexts;
+    [SerializeField] private List<TextMeshProUGUI> nameTexts;
+    [SerializeField] private List<TextMeshProUGUI> scoreTexts;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
