@@ -1693,17 +1693,7 @@ MonoBehaviour:
   musicSource: {fileID: 1442334977}
   bestPlayerName: 
   bestScore: 0
-  highScores:
-  - bestPlayerName: 
-    bestScore: 0
-  - bestPlayerName: 
-    bestScore: 0
-  - bestPlayerName: 
-    bestScore: 0
-  - bestPlayerName: 
-    bestScore: 0
-  - bestPlayerName: 
-    bestScore: 0
+  highScores: []
   volume: 1
   soundEnabled: 1
 --- !u!4 &1442334976

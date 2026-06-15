@@ -25,7 +25,7 @@ public class MyManager : MonoBehaviour
     [System.Serializable]
     class SaveData
     {
-        public List<ScoreEntry> highScores = new List<ScoreEntry>();
+        public List<ScoreEntry> highScores = new List<ScoreEntry>(5);
         public float volume = 1f;
         public bool soundEnabled = true;
     }
