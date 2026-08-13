@@ -1,6 +1,6 @@
 # Data Persistence Project (Unity 6)
 
-![Cover Image](https://github.com/Faez-Mahmoudi/Counting-Prototype_Unity6/blob/main/Screenshots/Counting%20Prototype_Polished_02.jpg)
+![Cover Image](https://github.com/Faez-Mahmoudi/Data-Persistence-Project/blob/main/Screenshots/Data_Persistance_04.jpg)
 
 ## 🏀 Basket Battle
 
