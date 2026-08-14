@@ -2,7 +2,7 @@
 
 ![Cover Image](https://github.com/Faez-Mahmoudi/Data-Persistence-Project/blob/main/Screenshots/Data_Persistance_04.jpg)
 
-## Breakout Arena
+## 🧱 Breakout Arena
 
 **Breakout Arena** is a classic brick-breaker game developed as part of the **Unity Junior Programmer Pathway (Data Persistence)**.
 
@@ -65,12 +65,11 @@ The goal of this project is to practice and demonstrate interactive basketball g
 
 ## 🎮 How to Play
 
-* 🕹️ Use **WASD** to control Player 1.
-* 🎮 Use the **Arrow Keys** to control Player 2.
-* 🏀 Move around the court and hit the ball toward the opponent's basket.
-* 🥅 Score by getting the ball into the opponent's basket.
-* 🛡️ Defend your basket and try to stop your opponent from scoring.
-* 🏆 Score more points than your opponent to win the game.
+* ⬅️➡️ Use the **Left / Right Arrow Keys** to move the paddle.
+* 🖱️ Keep the ball from falling by positioning the paddle underneath it.
+* 🧱 Break as many bricks as possible to increase your score.
+* ⚡ Hold **W** or **Shift** to speed up the gameplay.
+* 🏆 Try to beat the current High Score!
   
 
 ---
