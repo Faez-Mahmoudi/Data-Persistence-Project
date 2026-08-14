@@ -2,13 +2,14 @@
 
 ![Cover Image](https://github.com/Faez-Mahmoudi/Data-Persistence-Project/blob/main/Screenshots/Data_Persistance_04.jpg)
 
-## 🏀 Basket Battle
+## Breakout Arena
 
-**Basket Battle** is a one- or two-player basketball game developed as part of the **Unity Junior Programmer Pathway (Counting Prototype)** and the **Unity Creative Core Pathway (Prototyping)**.
+**Breakout Arena** is a classic brick-breaker game developed as part of the **Unity Junior Programmer Pathway (Data Persistence)**.
 
-Players control spherical characters and compete against each other by shooting the ball into the opponent's basket to score points.
+Players control a paddle to keep the ball in play and break bricks to earn points and achieve a high score.
 
-This project was created to practice and demonstrate **Unity gameplay mechanics, physics, player controls, game design, lighting, and visual effects**.
+This project was created to practice and demonstrate **Unity gameplay mechanics, physics, player controls, UI, data persistence, and game design**.
+
 
 
 ---
