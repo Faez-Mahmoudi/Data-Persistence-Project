@@ -51,16 +51,16 @@ The goal of this project is to practice and demonstrate **Unity gameplay mechani
 
 ## 🚀 Features
 
-- 🏀 1–2 player local basketball gameplay
-- 🎮 Player movement and controls
-- ⚽ Physics-based ball interaction
-- 🏆 Score and match timer system
-- 🎨 Custom neon-style visual design
-- 💡 Emission materials and dynamic lighting
-- ✨ Particle systems and visual effects
-- 🎥 Camera and gameplay presentation
-- 🖥️ In-game UI and menu system
-- 🔄 Pause, resume, and menu functionality
+* 🏓 Simple breakout-style arcade gameplay
+* 🎮 Player movement and control
+* 🧱 Brick-based level and collision system
+* ⚽ Physics-based ball movement and interactions
+* 💥 Brick destruction mechanics
+* 🏆 Score tracking system
+* 🎯 Keyboard-based gameplay controls
+* 🖥️ In-game UI and score display
+* 🔄 Restart and replay functionality
+
 
 ---
 
