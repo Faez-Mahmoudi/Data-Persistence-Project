@@ -31,20 +31,21 @@ This project was created to practice and demonstrate **Unity gameplay mechanics,
 
 This project demonstrates core Unity skills including:
 
-- Physics-based basketball gameplay
-- Player movement and control systems
-- Ball physics and collision interactions
-- Score tracking and match timer systems
-- One- and two-player local gameplay
-- In-game UI and HUD implementation
-- Custom lighting and neon-style visual presentation
-- Emission materials and visual effects
-- Particle systems and gameplay effects
-- Audio and visual effects integration
-- Game state and menu management
-- Overall gameplay polish and presentation
+- Classic Breakout-style gameplay
+- Player paddle movement and control
+- Physics-based ball movement and bouncing
+- Collision detection between the ball, paddle, walls, and blocks
+- Breakable blocks and destruction mechanics
+- Multiple block layouts and level progression
+- Score tracking and high-score system
+- Player name and score data persistence
+- Game state and scene management
+- In-game UI and score display
+- Keyboard input and movement controls
+- Game restart and menu navigation
+- Basic gameplay balancing and polish
 
-The goal of this project is to practice and demonstrate interactive basketball game mechanics using Unity and C#, while improving the visual presentation and gameplay feel of an earlier prototype.
+The goal of this project is to practice and demonstrate **Unity gameplay mechanics, physics, collision detection, player input, UI systems, and data persistence using Unity and C#**, while creating a simple and playable Breakout-style arcade game.
 
 ---
 
