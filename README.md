@@ -22,7 +22,7 @@ This project was created to practice and demonstrate **Unity gameplay mechanics,
 
 ## ▶️ Gameplay Video
 
-- [Watch Gameplay Video](https://github.com/Faez-Mahmoudi/Counting-Prototype_Unity6/blob/main/Videos/Basketbattel%20Polished%20720P%20Mute-2.m4v)
+- [Watch Gameplay Video](https://github.com/Faez-Mahmoudi/Data-Persistence-Project/blob/main/Videos/Data_Persistance_1080.mp4)
 
 ---
 
