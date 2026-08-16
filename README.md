@@ -79,4 +79,4 @@ The goal of this project is to practice and demonstrate **Unity gameplay mechani
 
 ### 🔹 Clone the repository
 ```bash
-git clone https://github.com/Faez-Mahmoudi/Counting-Prototype_Unity6.git
+git clone https://github.com/Faez-Mahmoudi/Data-Persistence-Project.git
